@@ -58,6 +58,7 @@ def dijkstra(graph,map,start,goal):
         line += path[i+1]
         line += ","
         info.append(line)
+    info.append(path[-1])
 
     return info
 
