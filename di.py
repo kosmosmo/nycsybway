@@ -1,8 +1,9 @@
 import ast
-file_graph = open('graph.txt', 'r')
-file_map = open('map.txt', 'r')
-graph = ast.literal_eval(file_graph.read())
-map = ast.literal_eval(file_map.read())
+import linecache
+import random
+import unittest
+from time import sleep
+
 
 
 def dijkstra(graph,map,start,goal):
@@ -61,6 +62,27 @@ def dijkstra(graph,map,start,goal):
     info.append(path[-1])
 
     return info
+#
+
+
+def utest(n):
+
+    for i in range(n):
+        try:
+            file_graph = open('graph.txt', 'r')
+            file_map = open('map.txt', 'r')
+            graph = ast.literal_eval(file_graph.read())
+            map = ast.literal_eval(file_map.read())
+            k = 0
+            arr2 = list(graph)
+            a = arr2[random.randint(0, len(arr2)-1)]
+            b = arr2[random.randint(0, len(arr2)-1)]
+            dijkstra(graph, map, a, b)
+        except:
+            print a, b
+
+
+utest(5000)
 
 
 
@@ -68,5 +90,3 @@ def dijkstra(graph,map,start,goal):
 
 
 
-
-print dijkstra(graph,map,'238 Street(1)','238 Street(1)')
