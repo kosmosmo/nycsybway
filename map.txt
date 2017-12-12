@@ -7,7 +7,7 @@
 "Dyckman Street":["1"],
 "191 Street(1)":["1"],
 "181 Street(1)":["1"],
-"168 Street-Washington Heights":["1"],
+"168 Street-Washington Heights":["A","C","1"],
 "157 Street(1)":["1"],
 "145 Street(1)":["1"],
 "137 Street-City College":["1"],
@@ -317,7 +317,7 @@
 'Gates Avenue' : ['J', 'M'],
 'Halsey Street' : ['J', 'L', 'M'],
 'Chauncey Street' : ['J', 'M'],
-'Broadway Junction (Eastern Parkway)' : ['J', 'L', 'M'],
+'Broadway Junction (Eastern Parkway)' : ['A','C','J', 'L', 'M'],
 
 '14 Street(ACE)': ['A', 'C', 'E','L'],
 '3 Avenue(L)' : ['L'],
@@ -334,7 +334,7 @@
 'Halsey Street' : ['J', 'L'],
 'Wilson Avenue' : ['L'],
 'Bushwick Avenue-Aberdeen Street' : ['L'],
-'Broadway Junction (Eastern Parkway)' : ['J', 'L'],
+
 'Atlantic Avenue(L)' : ['L'],
 'Sutter Avenue' : ['L'],
 'Livonia Avenue' : ['L'],
@@ -429,5 +429,51 @@
 'Neck Road' : ['Q'],
 
 'Ocean Parkway' : ['Q'],
+
+
+'Inwood-207 Street' : ['A'],
+'Dyckman Street(A)' : ['A'],
+'190 Street(A)' : ['A'],
+'181 Street(A)' : ['A'],
+'175 Street(A)' : ['A'],
+
+'163 Street-Amsterdam Avenue' : ['C'],
+'155 Street(C)' : ['C'],
+
+'Chambers Street(AC)' : ['A','C','WALK'],
+'High Street' : ['A','C'],
+
+'Lafayette Avenue(C)' : ['C'],
+'Clinton-Washington Avenues(C)' : ['C'],
+'Franklin Avenue(CS)' : ['C','S'],
+
+'Nostrand Avenue(AC)' : ['A','C'],
+'Kingston-Throop Avenues' : ['C'],
+'Utica Avenue' : ['C'],
+'Ralph Avenue' : ['C'],
+'Rockaway Avenue(C)' : ['C'],
+
+'Liberty Avenue' : ['C'],
+'Van Siclen Avenue(C)' : ['C'],
+'Shepherd Avenue' : ['C'],
+'Euclid Avenue' : ['A','C'],
+
+'Grant Avenue' : ['A'],
+'80 Street(A)' : ['A'],
+'88 Street(A)' : ['A'],
+'Rockaway Boulevard' : ['A'],
+'104 Street(A)' : ['A'],
+'111 Street(A)' : ['A'],
+'Ozone Park-Lefferts Boulevard' : ['A'],
+'Aqueduct Racetrack' : ['A'],
+'Aqueduct-North Conduit Avenue' : ['A'],
+'Howard Beach-JFK Airport' : ['A'],
+'Broad Channel' : ['A'],
+'Beach 67 Street' : ['A'],
+'Beach 60 Street' : ['A'],
+'Beach 44 Street' : ['A'],
+'Beach 36 Street' : ['A'],
+'Beach 25 Street' : ['A'],
+'Far Rockaway-Mott Avenue' : ['A'],
 
 }

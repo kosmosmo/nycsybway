@@ -88,7 +88,7 @@ def utest(n):
             print a, b
 
 
-utest(5000)
+utest(1000)
 
 
 
