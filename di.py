@@ -60,9 +60,14 @@ def dijkstra(graph,map,start,goal):
         line += ","
         info.append(line)
     info.append(path[-1])
+    info.append("Waiting time is "+str(shortest_dis))
 
     return info
-#
+
+
+
+
+
 
 
 def utest(n):
@@ -77,6 +82,7 @@ def utest(n):
             arr2 = list(graph)
             a = arr2[random.randint(0, len(arr2)-1)]
             b = arr2[random.randint(0, len(arr2)-1)]
+
             dijkstra(graph, map, a, b)
         except:
             print a, b

@@ -102,7 +102,7 @@ class subwayCore(subwayUi):
                 path.insert(0, currentNode)
                 currentNode = predecessor[currentNode]
             except KeyError:
-                print('path not reachable')
+                print('NOPE!')
                 break
         path.insert(0, start)
         start, end = 0, len(path)
@@ -123,9 +123,8 @@ class subwayCore(subwayUi):
             else:
                 line += (path_train[i])[0]
             info.append(line)
-
-
-
+        info.append(path[-1])
+        info.append("Waiting time is " + str(shortest_dis[goal]) + " min")
 
         return info
 
