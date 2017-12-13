@@ -1,30 +1,99 @@
 import ast
-
-file_graph= open('graph.txt','r')
-graph = ast.literal_eval(file_graph.read())
-
-station = []
-for key,val in graph.items():
-    station.append(key)
-
-print station
+import linecache
+import random
+import unittest
+from time import sleep
 
 
-149 Street-Grand Concourse 96 Street(BC)
-103 Street(BC) 233 Street(25)
-116 Street(23) 103 Street(BC)
-96 Street(BC) West Farms Square-East Tremont Avenue
-103 Street(BC) 170 Street(BD)
-Cathedral Parkway (110 Street)(BC) 157 Street(1)
-233 Street(25) 86 Street(BC)
-3 Avenue-149 Street 103 Street(BC)
-23 Street(6) Cathedral Parkway (110 Street)(BC)
-Cathedral Parkway (110 Street)(BC) 137 Street-City College
-86 Street(BC) Fordham Road(4)
-Cathedral Parkway (110 Street)(BC) 96 Street(123)
-86 Street(BC) 116 Street(6)
-174 Street(25) 86 Street(BC)
-3 Avenue-149 Street 81 Street-Museum of Natural History(ABCD)
-Morris Park 86 Street(BC)
-Cathedral Parkway (110 Street)(BC) Court Sq
-Mosholu Parkway(4) Cathedral Parkway (110 Street)(BC)
+
+def dijkstra(graph,map,start,goal):
+    shortest_dis = {}
+    predecessor = {}
+    unseenNodes = graph
+    infinity = 999999
+    path = []
+    path_train = ['poop']
+    info = []
+    for node in unseenNodes:
+        shortest_dis[node] = infinity
+    # set start node as 0, the others as infinity
+    shortest_dis[start] = 0
+    while unseenNodes:
+        minNode = None
+        for node in unseenNodes:
+            if minNode is None:
+                minNode = node
+            elif shortest_dis[node] < shortest_dis[minNode]:
+                # find the min weight of all nodes
+                minNode = node
+        for childNode,weight in graph[minNode].items():
+            if weight + shortest_dis[minNode] < shortest_dis[childNode]:
+                shortest_dis[childNode] = weight + shortest_dis[minNode]
+                predecessor[childNode] = minNode
+        unseenNodes.pop(minNode)
+    currentNode = goal
+    while currentNode != start:
+        try:
+            path.insert(0,currentNode)
+            currentNode = predecessor[currentNode]
+        except KeyError:
+            print('path not reachable')
+            break
+    path.insert(0,start)
+    start,end = 0 , len(path)
+
+    while start + 1 < end:
+        path_train.append(list(set(map[path[start]])&set(map[path[start+1]])))
+        start += 1
+    path_train = path_train[1:]
+
+    for i in range(len(path_train)):
+        line = "at station "+path[i]+ " take train "
+        if len(path_train[i]) > 1:
+            for j in range(len(path_train[i])):
+                line += (path_train[i])[j]
+                if j != len(path_train[i]) - 1:
+                    line += " or "
+        else: line += (path_train[i])[0]
+        line += " to station "
+        line += path[i+1]
+        line += ","
+        info.append(line)
+    info.append(path[-1])
+    info.append("Waiting time is "+str(shortest_dis))
+    info.append("/n")
+
+    return info
+
+
+
+
+
+
+
+def utest(n):
+
+    for i in range(n):
+        try:
+            file_graph = open('graph.txt', 'r')
+            file_map = open('map.txt', 'r')
+            graph = ast.literal_eval(file_graph.read())
+            map = ast.literal_eval(file_map.read())
+            k = 0
+            arr2 = list(graph)
+            a = arr2[random.randint(0, len(arr2)-1)]
+            b = arr2[random.randint(0, len(arr2)-1)]
+
+            print dijkstra(graph, map, a, b)
+        except:
+            print a, b
+
+
+utest(50)
+
+
+
+
+
+
+
